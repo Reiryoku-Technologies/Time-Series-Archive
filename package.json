@@ -1,0 +1,19 @@
+{
+  "name": "@reiryoku/time-series-archive",
+  "version": "1.0.0",
+  "description": "A set of time series for various asset classes such as crypto, forex or commodities.",
+  "license": "MIT",
+  "homepage": "https://github.com/Reiryoku-Technologies/Time-Series-Archive",
+  "bugs": {
+    "url": "https://github.com/Reiryoku-Technologies/Time-Series-Archive/issues"
+  },
+  "author": {
+    "name": "Vasile Pește / Reiryoku Technologies",
+    "email": "vasile.peste@protonmail.ch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Reiryoku-Technologies/Time-Series-Archive.git"
+  },
+  "main": "./entry/node/main.js"
+}
