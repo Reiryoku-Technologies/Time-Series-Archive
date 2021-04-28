@@ -33,7 +33,7 @@ The periods format.
 DATE, OPEN, HIGH, LOW, CLOSE, VOLUME
 ```
 
-## NPM Installation
+## Installation
 The easiest way to install the Time Series Archive is using the following command in your NPM project directory.
 ```console
 npm install @reiryoku/time-series-archive
