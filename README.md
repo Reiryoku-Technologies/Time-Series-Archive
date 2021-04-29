@@ -3,7 +3,7 @@ A set of time series for various asset classes such as crypto, forex or commodit
 
 This project is also a Node.js module: it can be used to read and parse the time series through Node.js.
 If you are interested only in the time series, or if you want to use another language (for example Python),
-then just download the `series` folder.
+then just download the `series` directory.
 
 ## Structure
 Time series are stored in the `series` folder, follows the archive structure.
@@ -14,8 +14,12 @@ series
             {year}
                 {month}.csv
         periods
-            {timeframe}.csv
+            {year}
+                {timeframe}.csv
 ```
+
+The `ticks` directory contains the symbol ticks.
+The `periods` directory contains the symbol candlesticks/bars.
 
 ## Format
 All ticks and periods are stored in CSV files.
