@@ -1,8 +1,7 @@
 # Time Series Archive
-A set of time series for various asset classes such as
-crypto, forex or commodities.
+A set of time series for various asset classes such as crypto, forex or commodities.
 
-This project is also a NPM module: it can be used to read and parse the time series through Node.js.
+This project is also a Node.js module: it can be used to read and parse the time series through Node.js.
 If you are interested only in the time series, or if you want to use another language (for example Python),
 then just download the `series` folder.
 
@@ -34,7 +33,7 @@ DATE, OPEN, HIGH, LOW, CLOSE, VOLUME
 ```
 
 ## Installation
-The easiest way to install the Time Series Archive is using the following command in your NPM project directory.
+The easiest way to install the Time Series Archive is using the following command in your project directory.
 ```console
 npm install @reiryoku/time-series-archive
 ```
