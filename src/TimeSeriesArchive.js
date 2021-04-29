@@ -8,9 +8,19 @@ class TimeSeriesArchive {
         return path.resolve(__dirname, `../series/${symbol.toUpperCase()}/ticks/${year}/${sanitizedMonth}.csv`);
     }
 
+    static getPeriodsPath ({ symbol, year, timeframe, }) {
+        return path.resolve(__dirname, `../series/${symbol.toUpperCase()}/periods/${year}/${timeframe}.csv`);
+    }
+
     static async hasTicks ({ symbol, year, month, }) {
         return new Promise((resolve) => {
             fs.access(TimeSeriesArchive.getTicksPath({ symbol, year, month, }), fs.constants.F_OK, (error) => resolve(!error));
+        });
+    }
+
+    static async hasPeriods ({ symbol, year, timeframe, }) {
+        return new Promise((resolve) => {
+            fs.access(TimeSeriesArchive.getPeriodsPath({ symbol, year, timeframe, }), fs.constants.F_OK, (error) => resolve(!error));
         });
     }
 
@@ -24,6 +34,20 @@ class TimeSeriesArchive {
                 }
 
                 resolve(TimeSeriesArchive.parseTicks(descriptor));
+            });
+        });
+    }
+
+    static async getPeriods ({ symbol, year, timeframe, }) {
+        return new Promise((resolve, reject) => {
+            fs.readFile(TimeSeriesArchive.getPeriodsPath({ symbol, year, timeframe, }), "utf8", (error, descriptor) => {
+                if (error) {
+                    reject(error);
+
+                    return;
+                }
+
+                resolve(TimeSeriesArchive.parsePeriods(descriptor));
             });
         });
     }
@@ -42,6 +66,25 @@ class TimeSeriesArchive {
         }
 
         return ticks;
+    }
+
+    static parsePeriods (plainPeriods) {
+        const periods = [];
+
+        for (const plainPeriod of plainPeriods.split("\n")) {
+            const parts = plainPeriod.split(",");
+
+            periods.push({
+                date: new Date(Number.parseInt(parts[0])),
+                open: Number.parseFloat(parts[1]),
+                high: Number.parseFloat(parts[2]),
+                low: Number.parseFloat(parts[3]),
+                close: Number.parseFloat(parts[4]),
+                volume: Number.parseFloat(parts[5]),
+            });
+        }
+
+        return periods;
     }
 }
 
