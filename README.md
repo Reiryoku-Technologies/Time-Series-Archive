@@ -6,7 +6,7 @@ If you are interested only in the time series, or if you want to use another lan
 then just download the `series` directory.
 
 ## Structure
-Time series are stored in the `series` folder, follows the archive structure.
+Time series are stored in the `series` directory, follows the archive structure.
 ```
 series
     {symbol}
@@ -22,7 +22,7 @@ The `ticks` directory contains the symbol ticks.
 The `periods` directory contains the symbol candlesticks/bars.
 
 ## Format
-All ticks and periods are stored in CSV files.
+All ticks and periods are ordered from oldest to newest and stored in CSV files.
 
 ### Ticks
 The ticks format.
