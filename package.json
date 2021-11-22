@@ -1,6 +1,6 @@
 {
     "name": "@reiryoku/time-series-archive",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "description": "A set of time series for various asset classes such as crypto, forex or commodities.",
     "license": "MIT",
     "homepage": "https://github.com/Reiryoku-Technologies/Time-Series-Archive",

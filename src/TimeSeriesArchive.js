@@ -2,6 +2,12 @@ const path = require("path");
 const fs = require("fs");
 
 class TimeSeriesArchive {
+    static #sourcePath;
+
+    static setSourcePath (path) {
+        TimeSeriesArchive.#sourcePath = path;
+    }
+
     static getTicksPath ({ symbol, year, month, }) {
         const sanitizedMonth = month < 10 ? `0${month}` : month;
 
@@ -25,10 +31,10 @@ class TimeSeriesArchive {
     }
 
     static async getTicks ({ symbol, year, month, }) {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             fs.readFile(TimeSeriesArchive.getTicksPath({ symbol, year, month, }), "utf8", (error, descriptor) => {
                 if (error) {
-                    reject(error);
+                    resolve(undefined);
 
                     return;
                 }
@@ -39,10 +45,10 @@ class TimeSeriesArchive {
     }
 
     static async getPeriods ({ symbol, year, timeframe, }) {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             fs.readFile(TimeSeriesArchive.getPeriodsPath({ symbol, year, timeframe, }), "utf8", (error, descriptor) => {
                 if (error) {
-                    reject(error);
+                    resolve(undefined);
 
                     return;
                 }
